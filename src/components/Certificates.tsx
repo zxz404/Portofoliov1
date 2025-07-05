@@ -11,7 +11,7 @@ type Certificate = {
   issuer: string;
   date: string;
   description: string;
-  credentialId: string;
+
   downloadUrl: string;
   category: string;
   image: string;
@@ -27,7 +27,7 @@ const Certificates = () => {
       issuer: 'Meta',
       date: '2024',
       description: 'Certificate for completing the React Developer program.',
-      credentialId: 'META-123456',
+  
       downloadUrl: 'https://example.com/download/meta-123456',
       category: 'Frontend',
       image: cert1,
@@ -37,7 +37,6 @@ const Certificates = () => {
       issuer: 'Meta',
       date: '2024',
       description: 'LOMBA WEB STATIS TINGKAT MAHASISWA FESTIVAL OF INOVATION III',
-      credentialId: 'META-123456',
 
       downloadUrl: 'https://example.com/download/meta-123456',
       category: 'Frontend',
@@ -48,8 +47,7 @@ const Certificates = () => {
       issuer: 'Meta',
       date: '2024',
       description: 'class UI/UX Research and Design by MySkill x Lion Parcel',
-      credentialId: 'META-123456',
-
+      
       downloadUrl: 'https://example.com/download/meta-123456',
       category: 'Frontend',
       image: cert5,
@@ -59,7 +57,7 @@ const Certificates = () => {
       issuer: 'Meta',
       date: '2024',
       description: 'Certificate for completing the React Developer program.',
-      credentialId: 'META-123456',
+      
 
       downloadUrl: 'https://example.com/download/meta-123456',
       category: 'Frontend',
@@ -70,7 +68,6 @@ const Certificates = () => {
       issuer: 'Meta',
       date: '2024',
       description: 'Certificate for completing the React Developer program.',
-      credentialId: 'META-123456',
   
       downloadUrl: 'https://example.com/download/meta-123456',
       category: 'Frontend',
@@ -133,10 +130,6 @@ const Certificates = () => {
                     ? `${certificate.description.slice(0, 100)}...`
                     : certificate.description}
                 </p>
-                <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 mb-4">
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Credential ID</p>
-                  <p className="text-sm font-mono text-gray-700 dark:text-gray-300">{certificate.credentialId}</p>
-                </div>
               </div>
             </div>
           ))}
@@ -167,7 +160,6 @@ const Certificates = () => {
               <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 mb-4">
                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Credential ID</p>
                 <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
-                  {selectedCertificate.credentialId}
                 </p>
               </div>
             </div>

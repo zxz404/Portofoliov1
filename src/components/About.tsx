@@ -1,5 +1,5 @@
 // import React from "react";
-import ProfileImage from "../assets/profile.jpg";
+import ProfileImage from "../assets/Profile.png";
 import { Code, Palette, Users, Target } from "lucide-react";
 
 const About = () => {
@@ -38,8 +38,8 @@ const About = () => {
           <div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Journey</h3>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              With a background in Computer Science and a passion for web development, I've developed a unique perspective that combines technical expertise with creative problem-solving. My educational foundation and professional experience have shaped me into a versatile
-              professional who thrives in dynamic environments.
+              With a background in Computer Science and a passion for web development, I've developed a unique perspective that combines technical expertise with creative problem-solving. My educational foundation and professional
+              experience have shaped me into a versatile professional who thrives in dynamic environments.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
               I believe in continuous learning and staying ahead of industry trends. Whether working independently or as part of a team, I bring enthusiasm, dedication, and a commitment to excellence to every project.
@@ -49,8 +49,10 @@ const About = () => {
             </p>
           </div>
           <div className="relative">
-            <div className="bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 shadow-lg">
-              <img src={ProfileImage} alt="Profile" className="w-full h-80 object-cover rounded-xl shadow-lg" />
+            <div className="bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-1 shadow-lg">
+              <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+                <img src={ProfileImage} alt="Profile" className="w-full h-[400px] object-cover object-[center_10%]" />
+              </div>
             </div>
           </div>
         </div>
