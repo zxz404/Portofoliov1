@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import cert1 from '../assets/sertifikat/cert1.png';
 import cert2 from '../assets/sertifikat/cert2.png';
 import cert3 from '../assets/sertifikat/cert3.png';
 import cert4 from '../assets/sertifikat/cert4.png';
 import cert5 from '../assets/sertifikat/cert5.png';
-import { Award, Calendar, ExternalLink, X } from 'lucide-react';
+import { Award, Calendar, X } from 'lucide-react';
 
 type Certificate = {
   title: string;
   issuer: string;
   date: string;
   description: string;
-
   downloadUrl: string;
   category: string;
   image: string;
@@ -24,53 +24,47 @@ const Certificates = () => {
   const certificates: Certificate[] = [
     {
       title: 'Introduction to Networks',
-      issuer: 'Meta',
+      issuer: 'Cisco',
       date: '2024',
-      description: 'Certificate for completing the React Developer program.',
-  
-      downloadUrl: 'https://example.com/download/meta-123456',
-      category: 'Frontend',
+      description: 'Cisco-certified in foundational networking concepts and protocols (2024).',
+      downloadUrl: '#',
+      category: 'Networking',
       image: cert1,
     },
     {
       title: 'Lomba Web Statis',
-      issuer: 'Meta',
+      issuer: 'Festival of Innovation',
       date: '2024',
       description: 'LOMBA WEB STATIS TINGKAT MAHASISWA FESTIVAL OF INOVATION III',
-
-      downloadUrl: 'https://example.com/download/meta-123456',
+      downloadUrl: '#',
       category: 'Frontend',
       image: cert4,
     },
     {
-      title: 'Desain UI/UX',
-      issuer: 'Meta',
+      title: 'Design UI/UX',
+      issuer: 'MySkill x Lion Parcel',
       date: '2024',
-      description: 'class UI/UX Research and Design by MySkill x Lion Parcel',
-      
-      downloadUrl: 'https://example.com/download/meta-123456',
-      category: 'Frontend',
+      description: 'UI/UX Research and Design bootcamp with practical projects.',
+      downloadUrl: '#',
+      category: 'UI/UX',
       image: cert5,
     },
     {
-      title: 'Class pemrograman C++',
+      title: 'Class Pemrograman C++',
       issuer: 'Meta',
       date: '2024',
-      description: 'Certificate for completing the React Developer program.',
-      
-
-      downloadUrl: 'https://example.com/download/meta-123456',
-      category: 'Frontend',
+      description: 'Completed programming fundamentals with C++.',
+      downloadUrl: '#',
+      category: 'Backend',
       image: cert3,
     },
     {
-      title: 'Dcoding Pemrograman Dengan Java',
-      issuer: 'Meta',
+      title: 'Dcoding Java Programming',
+      issuer: 'DICODING',
       date: '2024',
-      description: 'Certificate for completing the React Developer program.',
-  
-      downloadUrl: 'https://example.com/download/meta-123456',
-      category: 'Frontend',
+      description: 'Hands-on Java course covering OOP and file handling.',
+      downloadUrl: '#',
+      category: 'Backend',
       image: cert2,
     },
   ];
@@ -88,27 +82,32 @@ const Certificates = () => {
   return (
     <section id="certificates" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Certifications & Achievements</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Professional certifications that validate my expertise and commitment to continuous learning.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Certificates Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((certificate, index) => (
-            <div
+            <motion.div
               key={index}
               onClick={() => openModal(certificate)}
               className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
               <div className="relative">
-                <img
-                  src={certificate.image || 'https://via.placeholder.com/400x200'}
-                  alt={certificate.title}
-                  className="w-full h-48 object-cover"
-                />
+                <img src={certificate.image} alt={certificate.title} className="w-full h-48 object-cover" />
                 <div className="absolute top-4 right-4">
                   <span className="bg-blue-600 dark:bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {certificate.category}
@@ -126,45 +125,44 @@ const Certificates = () => {
                   <span className="text-sm">{certificate.date}</span>
                 </div>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                  {certificate.description.length > 100
-                    ? `${certificate.description.slice(0, 100)}...`
-                    : certificate.description}
+                  {certificate.description.length > 100 ? `${certificate.description.slice(0, 100)}...` : certificate.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Modal */}
-        {isModalOpen && selectedCertificate && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-2xl w-full mx-4 relative">
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100"
+        <AnimatePresence>
+          {isModalOpen && selectedCertificate && (
+            <motion.div
+              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-2xl w-full relative"
+                initial={{ scale: 0.9, y: 50, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.9, y: 50, opacity: 0 }}
+                transition={{ duration: 0.3 }}
               >
-                <X size={24} />
-              </button>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{selectedCertificate.title}</h3>
-              <img
-                src={selectedCertificate.image || 'https://via.placeholder.com/400x200'}
-                alt={selectedCertificate.title}
-                className="w-full object-contain rounded-lg mb-4"
-              />
-              <p className="text-gray-600 dark:text-gray-300 font-medium mb-2">{selectedCertificate.issuer}</p>
-              <div className="flex items-center text-gray-500 dark:text-gray-400 mb-3">
-                <Calendar size={16} className="mr-2" />
-                <span className="text-sm">{selectedCertificate.date}</span>
-              </div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{selectedCertificate.description}</p>
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-3 mb-4">
-                <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">Credential ID</p>
-                <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
-                </p>
-              </div>
-            </div>
-          </div>
-        )}
+                <button onClick={closeModal} className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                  <X size={24} />
+                </button>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{selectedCertificate.title}</h3>
+                <img src={selectedCertificate.image} alt={selectedCertificate.title} className="w-full object-contain rounded-lg mb-4" />
+                <p className="text-gray-600 dark:text-gray-300 font-medium mb-2">{selectedCertificate.issuer}</p>
+                <div className="flex items-center text-gray-500 dark:text-gray-400 mb-3">
+                  <Calendar size={16} className="mr-2" />
+                  <span className="text-sm">{selectedCertificate.date}</span>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300">{selectedCertificate.description}</p>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8">

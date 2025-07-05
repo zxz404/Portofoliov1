@@ -1,22 +1,18 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import P1 from '../assets/Projects/P1.png';
 import P2 from '../assets/Projects/P2.png';
 import P3 from '../assets/Projects/P3.png';
 import P4 from '../assets/Projects/P4.png';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
-type Projects = {
-  title: string;
-  description: string;
-  image: string;
-};
 const Projects = () => {
   const projects = [
     {
       title: 'Biezari Event Organizer ',
       description: 'Biezari event organizer UI is a website that is used to manage events such as referees, participant expenses, income, reports and in the future it will be developed into a dynamic website.',
       image: P1,
-      tags: ['PHP','JavaScript','TailwindCSS'],
+      tags: ['PHP', 'JavaScript', 'TailwindCSS'],
       liveUrl: '#',
       githubUrl: '#'
     },
@@ -24,13 +20,13 @@ const Projects = () => {
       title: 'Web UMKM',
       description: 'A responsive static website for SMEs, built with HTML and CSS to showcase business profiles and services.',
       image: P2,
-      tags: ['HTML','CSS'],
+      tags: ['HTML', 'CSS'],
       liveUrl: '#',
       githubUrl: '#'
     },
     {
       title: 'Attendece Management System',
-      description: 'A powerful attendance tracking system built with Python (Flask) and PostgreSQL. It features an intuitive dashboard with real-time data processing, advanced analytics, and customizable reports. Ideal for businesses and institutions looking to automate and analyze employee attendance efficiently.',
+      description: 'A powerful attendance tracking system built with Python (Flask) and PostgreSQL. It features an intuitive dashboard with real-time data processing, advanced analytics, and customizable reports.',
       image: P3,
       tags: ['Python', 'Flask', 'PostgreSQL'],
       liveUrl: '#',
@@ -38,9 +34,9 @@ const Projects = () => {
     },
     {
       title: 'Student Admission Decision System',
-      description: 'A Laravel-based web application that uses the SMART method to calculate and evaluate student eligibility for junior high school admission, featuring a clean UI/UX and MySQL integration.',
+      description: 'A Laravel-based web application that uses the SMART method to evaluate student eligibility for junior high school admission.',
       image: P4,
-      tags:  ['Laravel', 'UI/UX', 'MySQL'],
+      tags: ['Laravel', 'UI/UX', 'MySQL'],
       liveUrl: '#',
       githubUrl: '#'
     }
@@ -49,29 +45,45 @@ const Projects = () => {
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        {/* Heading */}
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             A showcase of my recent work demonstrating various skills and technologies.
           </p>
-        </div>
+        </motion.div>
 
+        {/* Cards */}
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+            <motion.div
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
               <div className="relative overflow-hidden">
-                <img
+                <motion.img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  whileHover={{ scale: 1.05 }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              
+
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag, tagIndex) => (
                     <span
@@ -82,7 +94,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex space-x-4">
                   <a
                     href={project.liveUrl}
@@ -100,11 +112,18 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {/* CTA */}
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
           <a
             href="#contact"
             className="inline-flex items-center space-x-2 bg-blue-600 dark:bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200 transform hover:scale-105"
@@ -112,7 +131,7 @@ const Projects = () => {
             <span>View All Projects</span>
             <ArrowRight size={16} />
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

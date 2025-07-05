@@ -36,6 +36,19 @@ const Header = () => {
     }
   };
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const navItems = [
     { href: '#home', label: 'Home', icon: Home },
     { href: '#about', label: 'About', icon: User },
@@ -62,6 +75,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
                 className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 flex items-center space-x-1"
               >
                 <item.icon size={16} />
@@ -103,8 +117,8 @@ const Header = () => {
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   <item.icon size={18} />
                   <span>{item.label}</span>
