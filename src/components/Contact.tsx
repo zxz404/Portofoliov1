@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const Contact = () => {
@@ -38,7 +38,7 @@ const Contact = () => {
     emailjs
       .sendForm(serviceId, templateId, e.currentTarget, publicKey)
       .then(
-        (result) => {
+        () => { // Removed unused 'result' parameter
           setStateMessage('Message sent successfully!');
           setIsSubmitting(false);
           setFormData({ 
@@ -83,13 +83,6 @@ const Contact = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full">
-                  <Phone className="text-blue-600 dark:text-blue-400" size={20} />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Phone</h4>
-                  <p className="text-gray-600 dark:text-gray-300">+62 813-8900-4552</p>
-                </div>
               </div>
               <div className="flex items-center space-x-4">
                 <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full">

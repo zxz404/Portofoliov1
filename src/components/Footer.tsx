@@ -1,5 +1,4 @@
 import React from 'react';
-import { Heart, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -32,7 +31,6 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <div className="space-y-2 text-gray-400 dark:text-gray-500">
               <p>fatkhanafandi12@gmail.com</p>
-              <p>+62 813-8900-4552</p>
               <p>Jakarta, Indonesia</p>
             </div>
           </div>
@@ -40,7 +38,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 dark:text-gray-500 flex items-center">
-            Made with <Heart className="text-red-500 mx-2" size={16} /> by Fatkhan Afandi
+            Made with by Fatkhan Afandi
           </p>
           <p className="text-gray-400 dark:text-gray-500 mt-4 md:mt-0">
             © 2024 All rights reserved.
@@ -53,7 +51,6 @@ const Footer = () => {
         onClick={scrollToTop}
         className="absolute bottom-8 right-8 bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 transform hover:scale-110"
       >
-        <ArrowUp size={20} />
       </button>
     </footer>
   );
