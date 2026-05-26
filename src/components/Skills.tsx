@@ -47,7 +47,7 @@ const Skills = () => {
       title: "Frontend Development",
       skills: [
         { name: "React", level: "Beginner", icon: <FaReact />, color: "text-blue-500" },
-        { name: "Next.js", level: "Intermediate", icon: <SiNextdotjs />, color: "text-gray-800 dark:text-white" },
+        { name: "Next.js", level: "Beginner", icon: <SiNextdotjs />, color: "text-gray-800 dark:text-white" },
         { name: "JavaScript", level: "Advanced", icon: <FaJsSquare />, color: "text-yellow-500" },
         { name: "TypeScript", level: "Beginner", icon: <SiTypescript />, color: "text-blue-600" },
         { name: "React Native", level: "Beginner", icon: <TbBrandReactNative />, color: "text-cyan-500" },
@@ -63,7 +63,7 @@ const Skills = () => {
         { name: "PHP", level: "Beginner", icon: <FaPhp />, color: "text-purple-600" },
         { name: "Python", level: "Beginner", icon: <FaPython />, color: "text-blue-400" },
         { name: "PostgreSQL", level: "Intermediate", icon: <SiPostgresql />, color: "text-blue-700" },
-        { name: "Firebase", level: "Intermediate", icon: <SiFirebase />, color: "text-yellow-500" },
+        { name: "Firebase", level: "Beginner", icon: <SiFirebase />, color: "text-yellow-500" },
       ],
     },
     {
@@ -72,7 +72,7 @@ const Skills = () => {
         { name: "Git", level: "Advanced", icon: <FaGitAlt />, color: "text-orange-600" },
         { name: "Docker", level: "Beginner", icon: <FaDocker />, color: "text-blue-400" },
         { name: "Figma", level: "Advanced", icon: <FaFigma />, color: "text-purple-500" },
-        { name: "Adobe XD", level: "Intermediate", icon: <SiAdobexd />, color: "text-pink-500" },
+        { name: "Adobe XD", level: "Beginner", icon: <SiAdobexd />, color: "text-pink-500" },
         
       ],
     },
@@ -81,7 +81,7 @@ const Skills = () => {
   const getLevelColor = (level: SkillLevel) => {
     switch (level) {
       case 'Advanced': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
-      case 'Intermediate': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
+      case 'Intermediate': return 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300';
       case 'Beginner': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300';
       default: return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
     }
@@ -115,7 +115,7 @@ const Skills = () => {
               <span className="text-sm text-gray-600 dark:text-gray-400">Advanced</span>
             </div>
             <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+              <div className="w-3 h-3 rounded-full bg-blue-600 mr-2"></div>
               <span className="text-sm text-gray-600 dark:text-gray-400">Intermediate</span>
             </div>
             <div className="flex items-center">
@@ -130,7 +130,7 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
-              className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+              className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
@@ -143,7 +143,7 @@ const Skills = () => {
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
-                    className="flex flex-col items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800 hover:shadow-md transition-shadow duration-300"
+                    className="flex flex-col items-center p-4 rounded-lg bg-stone-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-900 hover:shadow-sm transition-all duration-300 border border-transparent hover:border-stone-200 dark:hover:border-gray-700"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: skillIndex * 0.1 }}

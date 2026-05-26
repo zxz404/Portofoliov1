@@ -38,19 +38,19 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="min-h-screen bg-white dark:bg-gray-900 pt-24 pb-20"
+        className="min-h-screen bg-stone-50 dark:bg-gray-950 pt-24 pb-20"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Back Button */}
           <div className="flex items-center justify-between mb-8">
             <button
               onClick={onClose}
-              className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-lg"
+              className="flex items-center space-x-2 text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors bg-white dark:bg-gray-900 px-4 py-2 rounded-lg border border-stone-200 dark:border-gray-800"
             >
               <ArrowLeft size={20} />
               <span className="font-medium">Back to Projects</span>
             </button>
-            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg">
+            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg border border-stone-200 dark:border-gray-800">
               <Calendar size={16} />
               <span className="font-medium">{project.year}</span>
             </div>
@@ -59,8 +59,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
           {/* Project Header */}
           <div className="mb-12">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <Layout className="text-blue-600 dark:text-blue-400" size={24} />
+              <div className="p-2 bg-blue-50 dark:bg-blue-950/40 rounded-lg">
+                <Layout className="text-blue-700 dark:text-blue-400" size={24} />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
                 {project.title}
@@ -73,7 +73,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
 
           {/* Image Slider */}
           <div className="mb-16">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-700">
+            <div className="relative rounded-lg overflow-hidden border border-stone-200 dark:border-gray-800 bg-white dark:bg-gray-900">
               <img
                 src={project.images[currentImageIndex]}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
@@ -86,13 +86,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 text-gray-800 dark:text-white p-3 rounded-full transition-all duration-200 shadow-lg backdrop-blur-sm"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 hover:bg-white dark:hover:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-lg transition-colors duration-200 border border-stone-200 dark:border-gray-700 backdrop-blur-sm"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 text-gray-800 dark:text-white p-3 rounded-full transition-all duration-200 shadow-lg backdrop-blur-sm"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 hover:bg-white dark:hover:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-lg transition-colors duration-200 border border-stone-200 dark:border-gray-700 backdrop-blur-sm"
                   >
                     <ChevronRight size={24} />
                   </button>
@@ -100,7 +100,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               )}
 
               {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm backdrop-blur-sm">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded text-sm backdrop-blur-sm">
                 {currentImageIndex + 1} / {project.images.length}
               </div>
             </div>
@@ -114,8 +114,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                     onClick={() => setCurrentImageIndex(index)}
                     className={`flex-shrink-0 w-24 h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       index === currentImageIndex
-                        ? 'border-blue-500 dark:border-blue-400 ring-2 ring-blue-300 dark:ring-blue-600'
-                        : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600 hover:scale-105'
+                        ? 'border-blue-600 dark:border-blue-400 ring-2 ring-blue-200 dark:ring-blue-800'
+                        : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'
                     }`}
                   >
                     <img
@@ -149,11 +149,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-start space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      className="flex items-start space-x-4 p-4 bg-white dark:bg-gray-900 rounded-lg hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors border border-stone-200 dark:border-gray-800"
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <div className="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center">
-                          <span className="text-blue-600 dark:text-blue-400 text-sm font-bold">
+                        <div className="w-6 h-6 bg-blue-50 dark:bg-blue-950/40 rounded flex items-center justify-center">
+                          <span className="text-blue-700 dark:text-blue-400 text-sm font-bold">
                             {index + 1}
                           </span>
                         </div>
@@ -167,8 +167,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               {/* Technologies */}
               <div>
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                    <Code className="text-purple-600 dark:text-purple-400" size={24} />
+                  <div className="p-2 bg-stone-100 dark:bg-gray-800 rounded-lg">
+                    <Code className="text-gray-700 dark:text-gray-300" size={24} />
                   </div>
                   <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
                     Technologies Used
@@ -181,11 +181,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 + 0.2 }}
-                      className="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group"
+                      className="flex justify-between items-center p-4 bg-white dark:bg-gray-900 rounded-lg hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors group border border-stone-200 dark:border-gray-800"
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                          <Layers className="text-blue-600 dark:text-blue-400" size={18} />
+                        <div className="p-2 bg-blue-50 dark:bg-blue-950/40 rounded-lg">
+                          <Layers className="text-blue-700 dark:text-blue-400" size={18} />
                         </div>
                         <span className="font-semibold text-gray-900 dark:text-white">
                           {tech.name}
@@ -203,7 +203,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
             {/* Right Column - Sidebar */}
             <div className="space-y-8">
               {/* Tags */}
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                   Technologies Stack
                 </h3>
@@ -211,7 +211,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                   {project.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors"
+                      className="px-4 py-2 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-950 transition-colors"
                     >
                       {tag}
                     </span>
@@ -221,20 +221,20 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
 
               {/* Action Buttons */}
               <div className="space-y-4">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-3 w-full bg-blue-600 dark:bg-blue-500 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                <button
+                  type="button"
+                  disabled
+                  className="flex w-full cursor-not-allowed items-center justify-center space-x-3 rounded-lg bg-stone-200 py-4 font-semibold text-gray-500 dark:bg-gray-800 dark:text-gray-500"
+                  title="Live demo belum tersedia"
                 >
                   <ExternalLink size={20} />
-                  <span className="text-lg">View Live Demo</span>
-                </a>
+                  <span className="text-lg">Live Demo Unavailable</span>
+                </button>
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-3 w-full bg-gray-800 dark:bg-gray-700 text-white py-4 rounded-xl font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                  className="flex items-center justify-center space-x-3 w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-4 rounded-lg font-semibold hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors duration-200 border border-stone-300 dark:border-gray-700"
                 >
                   <Github size={20} />
                   <span className="text-lg">View Source Code</span>
@@ -242,7 +242,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               </div>
 
               {/* Project Info */}
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6">
+              <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                   Project Info
                 </h3>
@@ -283,7 +283,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               e.stopPropagation();
               setIsImageModalOpen(false);
             }}
-            className="absolute top-6 right-6 text-white p-3 hover:bg-white/10 rounded-full transition-colors z-10"
+            className="absolute top-6 right-6 text-white p-3 hover:bg-white/10 rounded-lg transition-colors z-10"
           >
             <X size={28} />
           </button>
@@ -303,7 +303,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                     e.stopPropagation();
                     prevImage();
                   }}
-                  className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-colors backdrop-blur-sm"
+                  className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-4 rounded-lg transition-colors backdrop-blur-sm"
                 >
                   <ChevronLeft size={30} />
                 </button>
@@ -312,14 +312,14 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                     e.stopPropagation();
                     nextImage();
                   }}
-                  className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-4 rounded-full transition-colors backdrop-blur-sm"
+                  className="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-4 rounded-lg transition-colors backdrop-blur-sm"
                 >
                   <ChevronRight size={30} />
                 </button>
               </>
             )}
 
-            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-5 py-2 rounded-full text-sm backdrop-blur-sm">
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-5 py-2 rounded text-sm backdrop-blur-sm">
               {currentImageIndex + 1} / {project.images.length}
             </div>
           </div>

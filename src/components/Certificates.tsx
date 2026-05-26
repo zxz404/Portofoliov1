@@ -58,29 +58,29 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer group"
+              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer group border border-stone-200 dark:border-gray-800"
               onClick={() => openModal(certificate)}
             >
               <div className="relative">
                 <img 
                   src={certificate.image} 
                   alt={certificate.title} 
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-48 object-cover group-hover:scale-[1.03] transition-transform duration-500" 
                 />
                 <div className="absolute top-4 right-4">
-                  <span className="bg-blue-600 dark:bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                  <span className="bg-blue-700 dark:bg-blue-600 text-white px-3 py-1 rounded text-sm font-medium backdrop-blur-sm">
                     {certificate.category}
                   </span>
                 </div>
                 <div className="absolute bottom-4 left-4">
-                  <div className="bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs">
+                  <div className="bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded text-xs">
                     Click to view details
                   </div>
                 </div>
               </div>
               <div className="p-6">
                 <div className="flex items-start mb-3">
-                  <Award className="text-blue-600 dark:text-blue-400 mr-3 flex-shrink-0 mt-1" size={20} />
+                  <Award className="text-blue-700 dark:text-blue-400 mr-3 flex-shrink-0 mt-1" size={20} />
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white line-clamp-1">
                     {certificate.title}
                   </h3>
@@ -125,7 +125,7 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
         >
           <button
             onClick={onViewAll}
-            className="inline-flex items-center space-x-2 bg-blue-600 dark:bg-blue-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center space-x-2 bg-gray-900 dark:bg-white text-white dark:text-gray-950 px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors duration-200"
           >
             <span>View All Certificates ({totalCertificates})</span>
             <ChevronRight size={16} />
@@ -144,8 +144,8 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
             Certification Stats
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 text-center shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center border border-stone-200 dark:border-gray-800">
+              <div className="text-4xl font-bold text-blue-700 dark:text-blue-400 mb-2">
                 {totalCertificates}
               </div>
               <div className="text-gray-600 dark:text-gray-400 font-medium">Total Certificates</div>
@@ -153,8 +153,8 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
                 From {uniqueIssuers} different organizations
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 text-center shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center border border-stone-200 dark:border-gray-800">
+              <div className="text-4xl font-bold text-blue-700 dark:text-blue-400 mb-2">
                 {categoriesCount}
               </div>
               <div className="text-gray-600 dark:text-gray-400 font-medium">Categories</div>
@@ -162,8 +162,8 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
                 Covering various technical domains
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 text-center shadow-lg">
-              <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center border border-stone-200 dark:border-gray-800">
+              <div className="text-4xl font-bold text-blue-700 dark:text-blue-400 mb-2">
                 100%
               </div>
               <div className="text-gray-600 dark:text-gray-400 font-medium">Verification Rate</div>
@@ -185,7 +185,7 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
               onClick={closeModal}
             >
               <motion.div
-                className="bg-white dark:bg-gray-900 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
                 initial={{ scale: 0.9, y: 50, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 exit={{ scale: 0.9, y: 50, opacity: 0 }}
@@ -203,7 +203,7 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
                   </div>
                   <button
                     onClick={closeModal}
-                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
                   >
                     <X size={24} />
                   </button>
@@ -211,7 +211,7 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
 
                 <div className="grid lg:grid-cols-2 gap-8">
                   <div>
-                    <div className="rounded-xl overflow-hidden shadow-lg mb-6">
+                    <div className="rounded-lg overflow-hidden border border-stone-200 dark:border-gray-800 mb-6">
                       <img
                         src={selectedCertificate.image}
                         alt={selectedCertificate.title}
@@ -220,8 +220,8 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
                     </div>
                     
                     <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-lg">
-                        <span className="text-blue-600 dark:text-blue-400 font-medium">
+                      <div className="bg-blue-50 dark:bg-blue-950/40 px-4 py-2 rounded-lg">
+                        <span className="text-blue-700 dark:text-blue-400 font-medium">
                           {selectedCertificate.category}
                         </span>
                       </div>
@@ -252,7 +252,7 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
                         {selectedCertificate.skills.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                            className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm"
                           >
                             {skill}
                           </span>
@@ -265,7 +265,7 @@ const Certificates: React.FC<CertificatesProps> = ({ onViewAll }) => {
                         href={selectedCertificate.downloadUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center space-x-2 w-full bg-blue-600 dark:bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+                        className="flex items-center justify-center space-x-2 w-full bg-gray-900 dark:bg-white text-white dark:text-gray-950 py-3 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors"
                       >
                         <Download size={18} />
                         <span>Download Certificate</span>

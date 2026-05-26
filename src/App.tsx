@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -16,6 +16,22 @@ import { Project } from './components/ProjectsData';
 function App() {
   const [viewMode, setViewMode] = useState<'main' | 'allProjects' | 'projectDetail' | 'allCertificates'>('main');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [pendingNavTarget, setPendingNavTarget] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (viewMode !== 'main' || !pendingNavTarget) {
+      return;
+    }
+
+    const targetElement = document.getElementById(pendingNavTarget);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    setPendingNavTarget(null);
+  }, [pendingNavTarget, viewMode]);
 
   const handleViewAllProjects = () => {
     setViewMode('allProjects');
@@ -43,6 +59,27 @@ function App() {
     setViewMode('main');
     setSelectedProject(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigation = (targetId: string) => {
+    const scrollToTarget = () => {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    if (viewMode !== 'main') {
+      setPendingNavTarget(targetId);
+      setViewMode('main');
+      setSelectedProject(null);
+      return;
+    }
+
+    scrollToTarget();
   };
 
   const renderContent = () => {
@@ -89,7 +126,7 @@ function App() {
 
   return (
     <div className="min-h-screen">
-      <Header />
+      <Header onNavigate={handleNavigation} />
       {renderContent()}
       {viewMode === 'main' && <Footer />}
     </div>
