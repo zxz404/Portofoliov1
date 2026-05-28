@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, User, Briefcase, Award, Mail, Sun, Moon } from 'lucide-react';
+import { Menu, X, Home, User, Briefcase, Award, Mail } from 'lucide-react';
 
 interface HeaderProps {
   onNavigate: (targetId: string) => void;
@@ -8,7 +8,6 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,21 +23,9 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
       document.documentElement.classList.add('dark');
     }
   }, []);
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    if (!isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -80,24 +67,10 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 <span>{item.label}</span>
               </a>
             ))}
-            
-            {/* Dark Mode Toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
-            >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-2">
-            <button
-              onClick={toggleDarkMode}
-              className="border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
-            >
-              {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
             <button
               className="text-slate-300 transition-colors hover:text-lime-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
