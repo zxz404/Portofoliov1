@@ -58,12 +58,12 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border-b border-stone-200 dark:border-gray-800' 
+        ? 'border-b border-white/10 bg-[#080a0f]/90 backdrop-blur-md' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="font-mono text-lg font-bold uppercase tracking-[0.18em] text-white sm:text-xl">
            Fatkhan Afandi
           </div>
 
@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 key={item.href}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200 flex items-center space-x-1"
+                className="flex items-center space-x-1 font-mono text-xs uppercase tracking-[0.14em] text-slate-300 transition-colors duration-200 hover:text-lime-300"
               >
                 <item.icon size={16} />
                 <span>{item.label}</span>
@@ -84,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-stone-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-stone-200 dark:hover:bg-gray-800 transition-colors duration-200"
+              className="border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
@@ -94,12 +94,12 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg bg-stone-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 hover:bg-stone-200 dark:hover:bg-gray-800 transition-colors duration-200"
+              className="border border-white/10 bg-white/[0.04] p-2 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
             >
               {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400 transition-colors"
+              className="text-slate-300 transition-colors hover:text-lime-300"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -109,14 +109,14 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 dark:bg-gray-950/95 backdrop-blur-md rounded-lg border border-stone-200 dark:border-gray-800 mt-2 p-4">
+          <div className="mt-2 border border-white/10 bg-[#080a0f]/95 p-4 backdrop-blur-md md:hidden">
             <nav className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={(e) => handleSmoothScroll(e, item.href)}
-                  className="text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200 flex items-center space-x-2"
+                  className="flex items-center space-x-2 font-mono text-xs uppercase tracking-[0.14em] text-slate-300 transition-colors duration-200 hover:text-lime-300"
                 >
                   <item.icon size={18} />
                   <span>{item.label}</span>

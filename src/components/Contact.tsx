@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -59,59 +60,70 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Let's Work Together</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+    <section id="contact" className="site-section">
+      <div className="section-grid" />
+      <div className="section-glow" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+        >
+          <div>
+            <p className="section-eyebrow">05 / Open Channel</p>
+            <h2 className="section-title">Let's Work Together</h2>
+          </div>
+          <p className="section-copy mt-6 max-w-3xl md:mt-0">
             Ready to discuss your next project? I'd love to hear from you and explore how we can create something amazing together.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Get In Touch</h3>
+            <h3 className="mb-8 font-mono text-sm font-bold uppercase tracking-[0.2em] text-white">Get In Touch</h3>
             <div className="space-y-6 mb-8">
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-50 dark:bg-blue-950/40 p-3 rounded-lg">
-                  <Mail className="text-blue-700 dark:text-blue-400" size={20} />
+                <div className="border border-cyan-300/30 bg-cyan-300/10 p-3">
+                  <Mail className="text-cyan-100" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-                  <p className="text-gray-600 dark:text-gray-300">fatkhanafandi12@gmail.com</p>
+                  <h4 className="font-semibold text-white">Email</h4>
+                  <p className="text-slate-300">fatkhanafandi12@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
               </div>
               <div className="flex items-center space-x-4">
-                <div className="bg-blue-50 dark:bg-blue-950/40 p-3 rounded-lg">
-                  <MapPin className="text-blue-700 dark:text-blue-400" size={20} />
+                <div className="border border-cyan-300/30 bg-cyan-300/10 p-3">
+                  <MapPin className="text-cyan-100" size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 dark:text-white">Location</h4>
-                  <p className="text-gray-600 dark:text-gray-300">Jakarta, Indonesia</p>
+                  <h4 className="font-semibold text-white">Location</h4>
+                  <p className="text-slate-300">Jakarta, Indonesia</p>
                 </div>
               </div>
             </div>
             <div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Follow Me</h4>
+              <h4 className="font-semibold text-white mb-4">Follow Me</h4>
               <div className="flex space-x-4">
                 <a
                   href="https://github.com/zxz404"
-                  className="bg-stone-100 dark:bg-gray-800 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="border border-white/10 bg-white/[0.04] p-3 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
                 >
                   <Github size={20} />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/fatkhan-afandi-9384272b1/"
-                  className="bg-stone-100 dark:bg-gray-800 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="border border-white/10 bg-white/[0.04] p-3 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
                 >
                   <Linkedin size={20} />
                 </a>
                 <a
                   href="https://www.instagram.com/ftkhn__/"
-                  className="bg-stone-100 dark:bg-gray-800 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="border border-white/10 bg-white/[0.04] p-3 text-slate-300 transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
                 >
                   <Instagram size={20} />
                 </a>
@@ -120,11 +132,11 @@ const Contact = () => {
           </div>
 
            {/* Contact Form */}
-           <div className="bg-stone-50 dark:bg-gray-900 rounded-lg p-8 border border-stone-200 dark:border-gray-800">
+           <div className="tech-panel p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-300">
                     Full Name
                   </label>
                   <input
@@ -134,12 +146,12 @@ const Contact = () => {
                     value={formData.user_name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-stone-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-950 text-gray-900 dark:text-white"
+                    className="tech-input"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-300">
                     Email Address
                   </label>
                   <input
@@ -149,13 +161,13 @@ const Contact = () => {
                     value={formData.user_email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-stone-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-950 text-gray-900 dark:text-white"
+                    className="tech-input"
                     placeholder="your.email@example.com"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="subject" className="mb-2 block text-sm font-medium text-slate-300">
                   Subject
                 </label>
                 <input
@@ -165,12 +177,12 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-stone-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white dark:bg-gray-950 text-gray-900 dark:text-white"
+                  className="tech-input"
                   placeholder="What's this about?"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-300">
                   Message
                 </label>
                 <textarea
@@ -180,19 +192,19 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-stone-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none bg-white dark:bg-gray-950 text-gray-900 dark:text-white"
+                  className="tech-input resize-none"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gray-900 dark:bg-white text-white dark:text-gray-950 py-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors duration-200 flex items-center justify-center space-x-2"
+                className="tech-button w-full py-4 disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Send size={20} />
                 <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
-              {stateMessage && <p className="text-center text-gray-700 dark:text-gray-300">{stateMessage}</p>}
+              {stateMessage && <p className="text-center text-slate-300">{stateMessage}</p>}
             </form>
           </div>
         </div>

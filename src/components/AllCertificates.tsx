@@ -45,8 +45,10 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-50 dark:bg-gray-800 pt-20 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="site-section-muted min-h-screen pt-24">
+      <div className="section-grid" />
+      <div className="section-glow" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           className="mb-12"
@@ -56,45 +58,45 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
         >
           <button
             onClick={onBack}
-            className="flex items-center space-x-2 text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors mb-6"
+            className="mb-6 flex items-center space-x-2 font-mono text-xs uppercase tracking-[0.16em] text-lime-300 transition-colors hover:text-cyan-200"
           >
             <ArrowLeft size={20} />
             <span>Back to Portfolio</span>
           </button>
           
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="section-title mb-4">
             All Certifications
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className="section-copy">
             Browse all my professional certifications and achievements
           </p>
         </motion.div>
 
         {/* Search and Filter */}
         <motion.div
-          className="mb-12 bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800"
+          className="tech-panel mb-12 p-6"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
           <div className="grid md:grid-cols-2 gap-6 mb-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Search Certificates
               </label>
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-500" size={20} />
                 <input
                   type="text"
                   placeholder="Search by title, issuer, description, or skills..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-stone-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-950 text-gray-900 dark:text-white"
+                  className="tech-input pl-10"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-slate-300 mb-2">
                 Filter by Category
               </label>
               <div className="flex flex-wrap gap-2">
@@ -104,8 +106,8 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded text-sm font-medium transition-colors duration-200 ${
                       selectedCategory === category
-                        ? 'bg-blue-700 text-white'
-                        : 'bg-stone-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-stone-200 dark:hover:bg-gray-700'
+                        ? 'border-lime-300 bg-lime-300 text-slate-950'
+                        : 'border-white/10 bg-white/[0.04] text-slate-300 hover:border-lime-300/60 hover:text-lime-300'
                     }`}
                   >
                     {category}
@@ -115,7 +117,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
             </div>
           </div>
           <div className="flex justify-between items-center">
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-slate-500">
               Showing {filteredCertificates.length} of {totalCertificates} certificates
             </p>
             {(searchTerm || selectedCategory !== 'All') && (
@@ -124,7 +126,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                   setSearchTerm('');
                   setSelectedCategory('All');
                 }}
-                className="text-sm text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300"
+                className="text-sm text-lime-300 hover:text-cyan-200"
               >
                 Clear filters
               </button>
@@ -139,23 +141,23 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center border border-stone-200 dark:border-gray-800">
-            <div className="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">
+          <div className="tech-panel p-6 text-center">
+            <div className="text-3xl font-bold text-lime-300 mb-2">
               {totalCertificates}
             </div>
-            <div className="text-gray-600 dark:text-gray-400 font-medium">Total Certificates</div>
+            <div className="text-slate-300 font-medium">Total Certificates</div>
           </div>
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center border border-stone-200 dark:border-gray-800">
-            <div className="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">
+          <div className="tech-panel p-6 text-center">
+            <div className="text-3xl font-bold text-lime-300 mb-2">
               {uniqueIssuers}
             </div>
-            <div className="text-gray-600 dark:text-gray-400 font-medium">Organizations</div>
+            <div className="text-slate-300 font-medium">Organizations</div>
           </div>
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-6 text-center border border-stone-200 dark:border-gray-800">
-            <div className="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">
+          <div className="tech-panel p-6 text-center">
+            <div className="text-3xl font-bold text-lime-300 mb-2">
               {categoriesCount}
             </div>
-            <div className="text-gray-600 dark:text-gray-400 font-medium">Categories</div>
+            <div className="text-slate-300 font-medium">Categories</div>
           </div>
         </motion.div>
 
@@ -167,24 +169,25 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer group border border-stone-200 dark:border-gray-800"
+              whileHover={{ y: -8 }}
+              className="tech-panel tech-panel-hover cursor-pointer group overflow-hidden"
               onClick={() => openModal(certificate)}
             >
               <div className="relative h-48 overflow-hidden">
                 <img 
                   src={certificate.image} 
                   alt={certificate.title} 
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500" 
+                  className="w-full h-full object-cover grayscale-[0.15] contrast-110 group-hover:scale-[1.04] transition-transform duration-500" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4">
-                    <div className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded">
+                    <div className="border border-lime-300/40 bg-black/50 px-3 py-1 font-mono text-xs uppercase tracking-[0.16em] text-lime-200 backdrop-blur-sm">
                       Click to view details
                     </div>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="bg-blue-700 text-white px-3 py-1 rounded text-xs font-semibold">
+                  <span className="border border-lime-300/40 bg-lime-300 px-3 py-1 text-xs font-semibold text-slate-950">
                     {certificate.category}
                   </span>
                 </div>
@@ -192,19 +195,19 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
 
               <div className="p-5">
                 <div className="flex items-start mb-3">
-                  <Award className="text-blue-700 dark:text-blue-400 mr-2 flex-shrink-0 mt-1" size={18} />
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white line-clamp-1">
+                  <Award className="text-lime-300 mr-2 flex-shrink-0 mt-1" size={18} />
+                  <h3 className="text-lg font-bold text-white line-clamp-1">
                     {certificate.title}
                   </h3>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 text-sm font-medium mb-2 line-clamp-1">
+                <p className="text-slate-300 text-sm font-medium mb-2 line-clamp-1">
                   {certificate.issuer}
                 </p>
-                <div className="flex items-center text-gray-500 dark:text-gray-400 text-xs mb-3">
+                <div className="flex items-center text-slate-500 text-xs mb-3">
                   <Calendar size={14} className="mr-1" />
                   <span>{certificate.date}</span>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 leading-relaxed">
+                <p className="text-slate-400 text-sm mb-4 line-clamp-2 leading-relaxed">
                   {certificate.description}
                 </p>
                 
@@ -212,22 +215,22 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                   {certificate.skills.slice(0, 3).map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="px-2 py-1 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded text-xs"
+                      className="border border-cyan-300/20 bg-cyan-300/10 px-2 py-1 text-xs text-cyan-100"
                     >
                       {skill}
                     </span>
                   ))}
                   {certificate.skills.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs">
+                    <span className="border border-white/10 bg-white/[0.04] px-2 py-1 text-xs text-slate-400">
                       +{certificate.skills.length - 3}
                     </span>
                   )}
                 </div>
 
-                <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                <div className="flex justify-between items-center text-xs text-slate-500">
                   <span>{certificate.skills.length} skills</span>
                   {certificate.verificationUrl && (
-                    <span className="text-green-600 dark:text-green-400">Verified</span>
+                    <span className="text-lime-300">Verified</span>
                   )}
                 </div>
               </div>
@@ -238,15 +241,15 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
         {/* No Results Message */}
         {filteredCertificates.length === 0 && (
           <motion.div
-            className="text-center py-16 bg-white dark:bg-gray-900 rounded-lg mt-8 border border-stone-200 dark:border-gray-800"
+            className="tech-panel mt-8 py-16 text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
-            <Search size={48} className="mx-auto text-gray-400 dark:text-gray-500 mb-4" />
-            <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">
+            <Search size={48} className="mx-auto text-slate-500 mb-4" />
+            <p className="text-slate-300 text-lg mb-2">
               No certificates found matching your criteria
             </p>
-            <p className="text-gray-500 dark:text-gray-500 text-sm mb-4">
+            <p className="text-slate-500 text-sm mb-4">
               Try different search terms or clear filters
             </p>
             <button
@@ -254,7 +257,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                 setSearchTerm('');
                 setSelectedCategory('All');
               }}
-              className="text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium"
+              className="text-lime-300 hover:text-cyan-200 font-medium"
             >
               Clear all filters
             </button>
@@ -270,7 +273,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
         >
           <button
             onClick={onBack}
-            className="inline-flex items-center space-x-2 bg-gray-900 dark:bg-white text-white dark:text-gray-950 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors duration-200"
+            className="tech-button"
           >
             <ArrowLeft size={16} />
             <span>Back to Portfolio Home</span>
@@ -288,7 +291,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
               onClick={closeModal}
             >
               <motion.div
-                className="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="max-h-[90vh] w-full max-w-4xl overflow-y-auto border border-white/10 bg-[#0b0f16] p-6 text-slate-100"
                 initial={{ scale: 0.9, y: 50, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 exit={{ scale: 0.9, y: 50, opacity: 0 }}
@@ -297,16 +300,16 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
               >
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-3xl font-bold text-white mb-2">
                       {selectedCertificate.title}
                     </h3>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">
+                    <p className="text-xl text-slate-300 font-medium">
                       {selectedCertificate.issuer}
                     </p>
                   </div>
                   <button
                     onClick={closeModal}
-                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                    className="p-2 text-slate-400 hover:bg-white/[0.06] hover:text-lime-300"
                   >
                     <X size={24} />
                   </button>
@@ -314,7 +317,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
 
                 <div className="grid lg:grid-cols-2 gap-8">
                   <div>
-                    <div className="rounded-lg overflow-hidden border border-stone-200 dark:border-gray-800 mb-6">
+                    <div className="mb-6 overflow-hidden border border-white/10">
                       <img
                         src={selectedCertificate.image}
                         alt={selectedCertificate.title}
@@ -323,13 +326,13 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                     </div>
                     
                     <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="bg-blue-50 dark:bg-blue-950/40 px-4 py-2 rounded-lg">
-                        <span className="text-blue-700 dark:text-blue-400 font-medium">
+                      <div className="border border-lime-300/30 bg-lime-300/10 px-4 py-2">
+                        <span className="text-lime-200 font-medium">
                           {selectedCertificate.category}
                         </span>
                       </div>
-                      <div className="bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg">
-                        <span className="text-gray-600 dark:text-gray-400 font-medium">
+                      <div className="border border-white/10 bg-white/[0.04] px-4 py-2">
+                        <span className="text-slate-400 font-medium">
                           <Calendar size={16} className="inline mr-2" />
                           {selectedCertificate.date}
                         </span>
@@ -339,23 +342,23 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
 
                   <div>
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      <h4 className="text-lg font-semibold text-white mb-3">
                         Description
                       </h4>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <p className="text-slate-300 leading-relaxed">
                         {selectedCertificate.description}
                       </p>
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                      <h4 className="text-lg font-semibold text-white mb-3">
                         Skills Covered
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {selectedCertificate.skills.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm"
+                            className="border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-sm text-cyan-100"
                           >
                             {skill}
                           </span>
@@ -368,7 +371,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                         href={selectedCertificate.downloadUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center space-x-2 w-full bg-gray-900 dark:bg-white text-white dark:text-gray-950 py-3 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors"
+                        className="tech-button w-full py-3"
                       >
                         <Download size={18} />
                         <span>Download Certificate</span>
@@ -379,7 +382,7 @@ const AllCertificates: React.FC<AllCertificatesProps> = ({ onBack }) => {
                           href={selectedCertificate.verificationUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center space-x-2 w-full bg-gray-800 dark:bg-gray-700 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors"
+                          className="tech-button-secondary w-full py-3"
                         >
                           <ExternalLink size={18} />
                           <span>Verify Online</span>

@@ -5,12 +5,22 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-stone-50 dark:bg-gray-950 relative overflow-hidden border-b border-stone-200 dark:border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+    <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden border-b border-white/10 bg-[#080a0f] text-slate-100">
+      <div className="section-grid" />
+      <motion.div
+        className="absolute inset-x-0 top-24 h-px bg-gradient-to-r from-transparent via-lime-300 to-transparent"
+        animate={{ opacity: [0.25, 1, 0.25], x: ["-10%", "10%", "-10%"] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <div className="section-glow" />
+      <div className="absolute -left-28 bottom-20 h-72 w-72 rounded-full border border-lime-300/20 bg-lime-300/5 blur-2xl" />
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      
         {/* Heading */}
-        <motion.h1 initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+        <motion.h1 initial={{ opacity: 0, y: 34, filter: "blur(10px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }} className="mb-6 text-5xl font-black uppercase leading-none text-white md:text-7xl">
           <span className="block">Hi, I'm</span>
-          <span className="text-blue-700 dark:text-blue-400 inline-block">
+          <span className="inline-block text-lime-300">
             <Typewriter
               options={{
                 strings: ["Fatkhan Afandi"],
@@ -24,18 +34,18 @@ const Hero = () => {
         </motion.h1>
 
         {/* Description */}
-        <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+        <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="mx-auto mb-8 max-w-3xl text-xl text-slate-300 md:text-2xl">
           A passionate professional creating amazing experiences through innovative solutions. Detail-oriented, collaborative, and always pushing the boundaries of what's possible.
         </motion.p>
 
         {/* Buttons */}
-        <motion.div className="flex justify-center space-x-6 mb-12" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6 }}>
-          <a href="#contact" className="bg-gray-900 dark:bg-white text-white dark:text-gray-950 px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors duration-200">
+        <motion.div className="mb-12 flex flex-wrap justify-center gap-4" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }}>
+          <a href="#contact" className="tech-button">
             Get In Touch
           </a>
           <a
             href="#projects"
-            className="border border-gray-300 dark:border-gray-700 text-gray-800 dark:text-gray-200 px-8 py-4 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-700 dark:hover:border-blue-400 dark:hover:text-blue-300 transition-colors duration-200"
+            className="tech-button-secondary"
           >
             View My Work
           </a>
@@ -43,17 +53,17 @@ const Hero = () => {
 
         {/* Social Icons */}
         <motion.div className="flex justify-center space-x-8" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.9 }}>
-          <a href="https://github.com/zxz404" className="text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200">
+          <a href="https://github.com/zxz404" className="text-slate-400 transition-colors duration-200 hover:text-lime-300">
             <Github size={24} />
           </a>
-          <a href="https://www.linkedin.com/in/fatkhan-afandi-9384272b1/" className="text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200">
+          <a href="https://www.linkedin.com/in/fatkhan-afandi-9384272b1/" className="text-slate-400 transition-colors duration-200 hover:text-lime-300">
             <Linkedin size={24} />
           </a>
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=fatkhanafandi12@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-200 no-underline"
+            className="text-slate-400 transition-colors duration-200 hover:text-lime-300 no-underline"
             title="Kirim email ke fatkhanafandi12@gmail.com via Gmail"
           >
             <Mail size={24} />
@@ -62,7 +72,7 @@ const Hero = () => {
 
         {/* Bouncing Arrow */}
         <div className="absolute bottom-8 inset-x-0 mx-auto w-fit animate-bounce">
-          <ArrowDown className="text-gray-600 dark:text-gray-400" size={24} />
+          <ArrowDown className="text-lime-300" size={24} />
         </div>
       </div>
     </section>

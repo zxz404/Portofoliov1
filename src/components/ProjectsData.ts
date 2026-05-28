@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
     images: [P1], // Add multiple images for slider
     tags: ['PHP', 'JavaScript', 'TailwindCSS', 'Laravel', 'MySQL'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/zxz404/BiezariEventOrganizer',
     features: [
       'Real-time event management dashboard',
       'Participant registration and payment tracking',
@@ -62,7 +62,7 @@ export const projectsData: Project[] = [
     images: [P2,P8],
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/zxz404/Web-UMKM',
     features: [
       'Fully responsive design for all devices',
       'Service showcase section',
@@ -87,7 +87,7 @@ export const projectsData: Project[] = [
     images: [P3],
     tags: ['Python', 'Flask', 'PostgreSQL', 'Data Analytics'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/zxz404/attendance_app',
     features: [
       'Real-time attendance tracking',
       'Advanced analytics dashboard',
@@ -113,7 +113,7 @@ export const projectsData: Project[] = [
     images: [P4, P5],
     tags: ['Laravel', 'UI/UX', 'MySQL', 'Decision Support System'],
     liveUrl: '#',
-    githubUrl: '#',
+    githubUrl: 'https://github.com/zxz404/ppdbdss',
     features: [
       'SMART method implementation',
       'Multi-criteria evaluation',
@@ -147,7 +147,7 @@ export const projectsData: Project[] = [
     "Community"
   ],
   liveUrl: "#",
-  githubUrl: "https://github.com/zxz404/Web-UMKM",
+  githubUrl: "https://github.com/zxz404/StoryHive",
   features: [
     "Story creation with photo upload (file & camera)",
     "Interactive map with story markers",
@@ -180,7 +180,7 @@ export const projectsData: Project[] = [
   images: [P6, P7],
   tags: ['Flask', 'Machine Learning', 'TensorFlow', 'PostgreSQL', 'Telco Simulation', 'Recommendation System'],
   liveUrl: '#',
-  githubUrl: '#',
+  githubUrl: 'https://github.com/zxz404/telco-app',
   features: [
     'OTP-based user authentication',
     'Balance top-up and data package purchase simulation',

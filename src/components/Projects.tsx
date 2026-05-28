@@ -14,18 +14,23 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
     .slice(0, 4);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="site-section">
+      <div className="section-grid" />
+      <div className="section-glow" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="section-header"
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <div>
+            <p className="section-eyebrow">03 / Build Log</p>
+            <h2 className="section-title">Featured Projects</h2>
+          </div>
+          <p className="section-copy mt-6 max-w-3xl md:mt-0">
             A showcase of my best work demonstrating various skills and technologies.
           </p>
         </motion.div>
@@ -35,23 +40,24 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
           {featuredProjects.map((project: Project, index: number) => (
             <motion.div
               key={project.id}
-              className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300 group cursor-pointer border border-stone-200 dark:border-gray-800"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="tech-panel tech-panel-hover group cursor-pointer overflow-hidden"
+              initial={{ opacity: 0, y: 30, scale: 0.98 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.55, delay: index * 0.12, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true }}
+              whileHover={{ y: -8 }}
               onClick={() => onProjectSelect(project)}
             >
               <div className="relative overflow-hidden">
                 <motion.img
                   src={project.images[0]}
                   alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                  className="w-full h-64 object-cover grayscale-[0.2] contrast-110 group-hover:scale-[1.04] transition-transform duration-500"
                   whileHover={{ scale: 1.03 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#080a0f] via-[#080a0f]/20 to-transparent opacity-80 transition-opacity duration-300">
                   <div className="absolute bottom-4 left-4">
-                    <div className="text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-3 py-1 rounded">
+                    <div className="border border-lime-300/40 bg-black/50 px-3 py-1 font-mono text-xs uppercase tracking-[0.16em] text-lime-200 backdrop-blur-sm">
                       Click to view details
                     </div>
                   </div>
@@ -59,8 +65,8 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
               </div>
 
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed line-clamp-2">
+                <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                <p className="text-slate-400 mb-4 leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
 
@@ -68,13 +74,13 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
                   {project.tags.slice(0, 3).map((tag: string, tagIndex: number) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded text-sm font-medium"
+                      className="tech-chip"
                     >
                       {tag}
                     </span>
                   ))}
                   {project.tags.length > 3 && (
-                    <span className="px-3 py-1 bg-stone-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-sm">
+                    <span className="tech-chip-muted">
                       +{project.tags.length - 3}
                     </span>
                   )}
@@ -85,7 +91,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
                     type="button"
                     disabled
                     onClick={(e) => e.stopPropagation()}
-                    className="flex cursor-not-allowed items-center space-x-2 text-gray-400 dark:text-gray-600 font-medium"
+                    className="flex cursor-not-allowed items-center space-x-2 text-slate-600 font-medium"
                     title="Live demo belum tersedia"
                   >
                     <ExternalLink size={16} />
@@ -94,7 +100,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
                   <a
                     href={project.githubUrl}
                     onClick={(e) => e.stopPropagation()}
-                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 font-medium transition-colors"
+                    className="flex items-center space-x-2 text-slate-400 hover:text-lime-300 font-medium transition-colors"
                   >
                     <Github size={16} />
                     <span>Source Code</span>
@@ -115,7 +121,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectSelect, onViewAll }) => {
         >
           <button
             onClick={onViewAll}
-            className="inline-flex items-center space-x-3 bg-gray-900 dark:bg-white text-white dark:text-gray-950 px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 dark:hover:bg-blue-300 transition-colors duration-200"
+            className="tech-button"
           >
             <span className="text-lg">View All Projects ({projectsData.length})</span>
             <ArrowRight size={18} />

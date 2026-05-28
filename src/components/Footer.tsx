@@ -7,41 +7,42 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-950 text-white py-12 relative border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative overflow-hidden border-t border-white/10 bg-[#080a0f] py-12 text-white">
+      <div className="section-grid" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">Portfolio</h3>
-            <p className="text-gray-400 dark:text-gray-500 leading-relaxed">
+            <h3 className="mb-4 font-mono text-lg font-bold uppercase tracking-[0.18em] text-lime-300">Portfolio</h3>
+            <p className="text-slate-400 leading-relaxed">
               Creating exceptional digital experiences through innovative solutions and thoughtful design.
             </p>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="mb-4 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-white">Quick Links</h4>
             <div className="space-y-2">
-              <a href="#home" className="block text-gray-400 dark:text-gray-500 hover:text-white transition-colors">Home</a>
-              <a href="#about" className="block text-gray-400 dark:text-gray-500 hover:text-white transition-colors">About</a>
-              <a href="#projects" className="block text-gray-400 dark:text-gray-500 hover:text-white transition-colors">Projects</a>
-              <a href="#certificates" className="block text-gray-400 dark:text-gray-500 hover:text-white transition-colors">Certificates</a>
-              <a href="#contact" className="block text-gray-400 dark:text-gray-500 hover:text-white transition-colors">Contact</a>
+              <a href="#home" className="block text-slate-400 hover:text-lime-300 transition-colors">Home</a>
+              <a href="#about" className="block text-slate-400 hover:text-lime-300 transition-colors">About</a>
+              <a href="#projects" className="block text-slate-400 hover:text-lime-300 transition-colors">Projects</a>
+              <a href="#certificates" className="block text-slate-400 hover:text-lime-300 transition-colors">Certificates</a>
+              <a href="#contact" className="block text-slate-400 hover:text-lime-300 transition-colors">Contact</a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <div className="space-y-2 text-gray-400 dark:text-gray-500">
+            <h4 className="mb-4 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-white">Contact Info</h4>
+            <div className="space-y-2 text-slate-400">
               <p>fatkhanafandi12@gmail.com</p>
               <p>Jakarta, Indonesia</p>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 dark:border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 dark:text-gray-500 flex items-center">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-slate-500 flex items-center">
             Made by Fatkhan Afandi
           </p>
-          <p className="text-gray-400 dark:text-gray-500 mt-4 md:mt-0">
+          <p className="text-slate-500 mt-4 md:mt-0">
             Copyright 2024. All rights reserved.
           </p>
         </div>
@@ -50,7 +51,7 @@ const Footer = () => {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className="absolute bottom-8 right-8 bg-blue-700 hover:bg-blue-600 text-white p-3 rounded-lg transition-colors duration-200"
+        className="absolute bottom-8 right-8 z-10 border border-lime-300/70 bg-lime-300 p-3 text-slate-950 transition-colors duration-200 hover:bg-cyan-200"
       >
         <ArrowUp size={20} />
       </button>

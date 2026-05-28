@@ -38,19 +38,21 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="min-h-screen bg-stone-50 dark:bg-gray-950 pt-24 pb-20"
+        className="site-section min-h-screen pt-24"
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="section-grid" />
+        <div className="section-glow" />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header with Back Button */}
           <div className="flex items-center justify-between mb-8">
             <button
               onClick={onClose}
-              className="flex items-center space-x-2 text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors bg-white dark:bg-gray-900 px-4 py-2 rounded-lg border border-stone-200 dark:border-gray-800"
+              className="flex items-center space-x-2 border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] text-lime-300 transition-colors hover:border-lime-300/60"
             >
               <ArrowLeft size={20} />
               <span className="font-medium">Back to Projects</span>
             </button>
-            <div className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 px-4 py-2 rounded-lg border border-stone-200 dark:border-gray-800">
+            <div className="flex items-center space-x-2 border border-white/10 bg-white/[0.04] px-4 py-2 text-slate-400">
               <Calendar size={16} />
               <span className="font-medium">{project.year}</span>
             </div>
@@ -59,21 +61,21 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
           {/* Project Header */}
           <div className="mb-12">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-blue-50 dark:bg-blue-950/40 rounded-lg">
-                <Layout className="text-blue-700 dark:text-blue-400" size={24} />
+              <div className="border border-cyan-300/30 bg-cyan-300/10 p-2">
+                <Layout className="text-cyan-100" size={24} />
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+              <h1 className="text-4xl md:text-5xl font-black uppercase leading-none text-white">
                 {project.title}
               </h1>
             </div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-xl text-slate-300 leading-relaxed">
               {project.detailedDescription}
             </p>
           </div>
 
           {/* Image Slider */}
           <div className="mb-16">
-            <div className="relative rounded-lg overflow-hidden border border-stone-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+            <div className="relative overflow-hidden border border-white/10 bg-[#0b0f16]">
               <img
                 src={project.images[currentImageIndex]}
                 alt={`${project.title} - Image ${currentImageIndex + 1}`}
@@ -86,13 +88,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 hover:bg-white dark:hover:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-lg transition-colors duration-200 border border-stone-200 dark:border-gray-700 backdrop-blur-sm"
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 border border-white/10 bg-black/60 p-3 text-white backdrop-blur-sm transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 dark:bg-gray-900/90 hover:bg-white dark:hover:bg-gray-800 text-gray-800 dark:text-white p-3 rounded-lg transition-colors duration-200 border border-stone-200 dark:border-gray-700 backdrop-blur-sm"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 border border-white/10 bg-black/60 p-3 text-white backdrop-blur-sm transition-colors duration-200 hover:border-lime-300/60 hover:text-lime-300"
                   >
                     <ChevronRight size={24} />
                   </button>
@@ -100,7 +102,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               )}
 
               {/* Image Counter */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded text-sm backdrop-blur-sm">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 border border-lime-300/30 bg-black/70 px-4 py-2 text-sm text-lime-200 backdrop-blur-sm">
                 {currentImageIndex + 1} / {project.images.length}
               </div>
             </div>
@@ -114,8 +116,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                     onClick={() => setCurrentImageIndex(index)}
                     className={`flex-shrink-0 w-24 h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       index === currentImageIndex
-                        ? 'border-blue-600 dark:border-blue-400 ring-2 ring-blue-200 dark:ring-blue-800'
-                        : 'border-transparent hover:border-gray-300 dark:hover:border-gray-600'
+                        ? 'border-lime-300 ring-2 ring-lime-300/20'
+                        : 'border-transparent hover:border-cyan-300/50'
                     }`}
                   >
                     <img
@@ -135,10 +137,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               {/* Features */}
               <div>
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                    <CheckCircle className="text-green-600 dark:text-green-400" size={24} />
+                  <div className="border border-lime-300/30 bg-lime-300/10 p-2">
+                    <CheckCircle className="text-lime-300" size={24} />
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-3xl font-bold text-white">
                     Key Features
                   </h2>
                 </div>
@@ -149,16 +151,16 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="flex items-start space-x-4 p-4 bg-white dark:bg-gray-900 rounded-lg hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors border border-stone-200 dark:border-gray-800"
+                      className="flex items-start space-x-4 border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-lime-300/50 hover:bg-lime-300/[0.06]"
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <div className="w-6 h-6 bg-blue-50 dark:bg-blue-950/40 rounded flex items-center justify-center">
-                          <span className="text-blue-700 dark:text-blue-400 text-sm font-bold">
+                        <div className="flex h-6 w-6 items-center justify-center border border-cyan-300/30 bg-cyan-300/10">
+                          <span className="text-cyan-100 text-sm font-bold">
                             {index + 1}
                           </span>
                         </div>
                       </div>
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
+                      <span className="text-slate-300 font-medium">{feature}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -167,10 +169,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               {/* Technologies */}
               <div>
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="p-2 bg-stone-100 dark:bg-gray-800 rounded-lg">
-                    <Code className="text-gray-700 dark:text-gray-300" size={24} />
+                  <div className="border border-cyan-300/30 bg-cyan-300/10 p-2">
+                    <Code className="text-cyan-100" size={24} />
                   </div>
-                  <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                  <h2 className="text-3xl font-bold text-white">
                     Technologies Used
                   </h2>
                 </div>
@@ -181,17 +183,17 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 + 0.2 }}
-                      className="flex justify-between items-center p-4 bg-white dark:bg-gray-900 rounded-lg hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors group border border-stone-200 dark:border-gray-800"
+                      className="group flex items-center justify-between border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-lime-300/50 hover:bg-lime-300/[0.06]"
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="p-2 bg-blue-50 dark:bg-blue-950/40 rounded-lg">
-                          <Layers className="text-blue-700 dark:text-blue-400" size={18} />
+                        <div className="border border-cyan-300/30 bg-cyan-300/10 p-2">
+                          <Layers className="text-cyan-100" size={18} />
                         </div>
-                        <span className="font-semibold text-gray-900 dark:text-white">
+                        <span className="font-semibold text-white">
                           {tech.name}
                         </span>
                       </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-400 max-w-md text-right">
+                      <span className="text-sm text-slate-400 max-w-md text-right">
                         {tech.purpose}
                       </span>
                     </motion.div>
@@ -203,15 +205,15 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
             {/* Right Column - Sidebar */}
             <div className="space-y-8">
               {/* Tags */}
-              <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              <div className="tech-panel p-6">
+                <h3 className="text-xl font-bold text-white mb-4">
                   Technologies Stack
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {project.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
-                      className="px-4 py-2 bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 rounded text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-950 transition-colors"
+                      className="border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100 transition-colors hover:border-lime-300/50"
                     >
                       {tag}
                     </span>
@@ -224,7 +226,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                 <button
                   type="button"
                   disabled
-                  className="flex w-full cursor-not-allowed items-center justify-center space-x-3 rounded-lg bg-stone-200 py-4 font-semibold text-gray-500 dark:bg-gray-800 dark:text-gray-500"
+                  className="flex w-full cursor-not-allowed items-center justify-center space-x-3 border border-white/10 bg-white/[0.04] py-4 font-semibold text-slate-600"
                   title="Live demo belum tersedia"
                 >
                   <ExternalLink size={20} />
@@ -234,7 +236,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-3 w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white py-4 rounded-lg font-semibold hover:bg-stone-100 dark:hover:bg-gray-800 transition-colors duration-200 border border-stone-300 dark:border-gray-700"
+                  className="tech-button-secondary w-full py-4"
                 >
                   <Github size={20} />
                   <span className="text-lg">View Source Code</span>
@@ -242,26 +244,26 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onClose }) => {
               </div>
 
               {/* Project Info */}
-              <div className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+              <div className="tech-panel p-6">
+                <h3 className="text-xl font-bold text-white mb-4">
                   Project Info
                 </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 dark:text-gray-400">Year</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{project.year}</span>
+                    <span className="text-slate-400">Year</span>
+                    <span className="font-medium text-white">{project.year}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 dark:text-gray-400">Features</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{project.features.length}</span>
+                    <span className="text-slate-400">Features</span>
+                    <span className="font-medium text-white">{project.features.length}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 dark:text-gray-400">Images</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{project.images.length}</span>
+                    <span className="text-slate-400">Images</span>
+                    <span className="font-medium text-white">{project.images.length}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600 dark:text-gray-400">Technologies</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{project.technologies.length}</span>
+                    <span className="text-slate-400">Technologies</span>
+                    <span className="font-medium text-white">{project.technologies.length}</span>
                   </div>
                 </div>
               </div>

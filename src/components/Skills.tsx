@@ -80,47 +80,50 @@ const Skills = () => {
 
   const getLevelColor = (level: SkillLevel) => {
     switch (level) {
-      case 'Advanced': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300';
-      case 'Intermediate': return 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300';
-      case 'Beginner': return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300';
-      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
+      case 'Advanced': return 'border-lime-300/40 bg-lime-300/10 text-lime-200';
+      case 'Intermediate': return 'border-cyan-300/40 bg-cyan-300/10 text-cyan-100';
+      case 'Beginner': return 'border-amber-300/40 bg-amber-300/10 text-amber-100';
+      default: return 'border-white/10 bg-white/[0.04] text-slate-300';
     }
   };
 
   return (
     <section
       id="skills"
-      className="py-20 bg-gray-50 dark:bg-gray-800 overflow-hidden"
+      className="site-section-muted"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-grid" />
+      <div className="section-glow" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="section-header"
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Skills & Expertise
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <div>
+            <p className="section-eyebrow">02 / Capability Map</p>
+            <h2 className="section-title">Skills & Expertise</h2>
+          </div>
+          <p className="section-copy mt-6 max-w-3xl md:mt-0">
             My technical skills categorized by proficiency level
           </p>
           
           {/* Legend */}
-          <div className="flex flex-wrap justify-center gap-4 mt-6">
+          <div className="mt-6 flex flex-wrap gap-4 md:hidden">
             <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Advanced</span>
+              <div className="w-3 h-3 bg-lime-300 mr-2"></div>
+              <span className="text-sm text-slate-400">Advanced</span>
             </div>
             <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-blue-600 mr-2"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Intermediate</span>
+              <div className="w-3 h-3 bg-cyan-300 mr-2"></div>
+              <span className="text-sm text-slate-400">Intermediate</span>
             </div>
             <div className="flex items-center">
-              <div className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
-              <span className="text-sm text-gray-600 dark:text-gray-400">Beginner</span>
+              <div className="w-3 h-3 bg-amber-300 mr-2"></div>
+              <span className="text-sm text-slate-400">Beginner</span>
             </div>
           </div>
         </motion.div>
@@ -130,20 +133,20 @@ const Skills = () => {
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
-              className="bg-white dark:bg-gray-900 rounded-lg p-6 border border-stone-200 dark:border-gray-800"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+              className="tech-panel tech-panel-hover p-6"
+              initial={{ opacity: 0, y: 36, rotateX: -8 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.14, ease: [0.22, 1, 0.36, 1] }}
               viewport={{ once: true }}
             >
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+              <h3 className="mb-6 text-center font-mono text-sm font-bold uppercase tracking-[0.2em] text-white">
                 {category.title}
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {category.skills.map((skill, skillIndex) => (
                   <motion.div
                     key={skillIndex}
-                    className="flex flex-col items-center p-4 rounded-lg bg-stone-50 dark:bg-gray-800 hover:bg-white dark:hover:bg-gray-900 hover:shadow-sm transition-all duration-300 border border-transparent hover:border-stone-200 dark:hover:border-gray-700"
+                    className="flex flex-col items-center border border-white/10 bg-[#080a0f]/80 p-4 transition-all duration-300 hover:border-lime-300/50 hover:bg-lime-300/[0.06]"
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ delay: skillIndex * 0.1 }}
@@ -156,12 +159,12 @@ const Skills = () => {
                     </div>
                     
                     {/* Skill Name */}
-                    <h4 className="font-semibold text-gray-800 dark:text-gray-200 text-center text-sm mb-2">
+                    <h4 className="font-semibold text-slate-100 text-center text-sm mb-2">
                       {skill.name}
                     </h4>
                     
                     {/* Level Badge */}
-                    <div className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(skill.level)}`}>
+                    <div className={`border px-3 py-1 text-xs font-medium ${getLevelColor(skill.level)}`}>
                       {skill.level}
                     </div>
                   </motion.div>
@@ -179,7 +182,7 @@ const Skills = () => {
           transition={{ delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <p className="text-gray-600 dark:text-gray-400 italic">
+          <p className="font-mono text-sm uppercase tracking-[0.2em] text-slate-500">
             Constantly learning and expanding my skill set with new technologies
           </p>
         </motion.div>
