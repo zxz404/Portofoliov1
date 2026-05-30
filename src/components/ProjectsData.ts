@@ -2,7 +2,7 @@
 
 import P1 from '../assets/Projects/P1.png';
 import P2 from '../assets/Projects/P2.png';
-import P3 from '../assets/Projects/P3.png';
+// import P3 from '../assets/Projects/P3.png';
 import P4 from '../assets/Projects/PPDB1.png';
 import P5 from '../assets/Projects/PPDB.png';
 import P6 from '../assets/Projects/Nexus1.png';
@@ -79,32 +79,32 @@ export const projectsData: Project[] = [
     year: 2023,
      featured: true
   },
-  {
-    id: 3,
-    title: 'Attendance Management System',
-    description: 'A powerful attendance tracking system built with Python (Flask) and PostgreSQL.',
-    detailedDescription: 'A comprehensive attendance management solution that automates the tracking of student/employee attendance. The system features real-time data processing, advanced analytics, customizable reports, and integration capabilities with other educational/HR systems.',
-    images: [P3],
-    tags: ['Python', 'Flask', 'PostgreSQL', 'Data Analytics'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/zxz404/attendance_app',
-    features: [
-      'Real-time attendance tracking',
-      'Advanced analytics dashboard',
-      'Customizable reporting system',
-      'Facial recognition integration (optional)',
-      'QR code check-in',
-      'Automated notifications'
-    ],
-    technologies: [
-      { name: 'Python Flask', purpose: 'Backend API development' },
-      { name: 'PostgreSQL', purpose: 'Relational database for attendance records' },
-      { name: 'Chart.js', purpose: 'Data visualization and analytics' },
-      { name: 'SQLAlchemy', purpose: 'Database ORM' }
-    ],
-    year: 2024,
-     featured: true
-  },
+  // {
+  //   id: 3,
+  //   title: 'Attendance Management System',
+  //   description: 'A powerful attendance tracking system built with Python (Flask) and PostgreSQL.',
+  //   detailedDescription: 'A comprehensive attendance management solution that automates the tracking of student/employee attendance. The system features real-time data processing, advanced analytics, customizable reports, and integration capabilities with other educational/HR systems.',
+  //   images: [P3],
+  //   tags: ['Python', 'Flask', 'PostgreSQL', 'Data Analytics'],
+  //   liveUrl: '#',
+  //   githubUrl: 'https://github.com/zxz404/attendance_app',
+  //   features: [
+  //     'Real-time attendance tracking',
+  //     'Advanced analytics dashboard',
+  //     'Customizable reporting system',
+  //     'Facial recognition integration (optional)',
+  //     'QR code check-in',
+  //     'Automated notifications'
+  //   ],
+  //   technologies: [
+  //     { name: 'Python Flask', purpose: 'Backend API development' },
+  //     { name: 'PostgreSQL', purpose: 'Relational database for attendance records' },
+  //     { name: 'Chart.js', purpose: 'Data visualization and analytics' },
+  //     { name: 'SQLAlchemy', purpose: 'Database ORM' }
+  //   ],
+  //   year: 2024,
+  //    featured: true
+  // },
 {
     id: 4,
     title: 'Student Admission Decision System',

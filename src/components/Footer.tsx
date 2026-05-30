@@ -33,7 +33,7 @@ const Footer = () => {
             <h4 className="mb-4 font-mono text-sm font-semibold uppercase tracking-[0.18em] text-white">Contact Info</h4>
             <div className="space-y-2 text-slate-400">
               <p>fatkhanafandi12@gmail.com</p>
-              <p>Jakarta, Indonesia</p>
+              <p>Bogor, Indonesia</p>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ const Footer = () => {
             Made by Fatkhan Afandi
           </p>
           <p className="text-slate-500 mt-4 md:mt-0">
-            Copyright 2024. All rights reserved.
+            Copyright 2025. All rights reserved.
           </p>
         </div>
       </div>
