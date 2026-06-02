@@ -57,7 +57,7 @@ const Skills = () => {
       title: "Backend & Database",
       skills: [
         { name: "Node.js", level: "Advanced", icon: <FaNodeJs />, color: "text-green-600" },
-        { name: "Express.js", level: "Advanced", icon: <SiExpress />, color: "text-gray-600 dark:text-gray-300" },
+        { name: "Express.js", level: "Intermediate", icon: <SiExpress />, color: "text-gray-600 dark:text-gray-300" },
         { name: "Laravel", level: "Beginner", icon: <SiLaravel />, color: "text-red-500" },
         { name: "PHP", level: "Beginner", icon: <FaPhp />, color: "text-purple-600" },
         { name: "Python", level: "Beginner", icon: <FaPython />, color: "text-blue-400" },
