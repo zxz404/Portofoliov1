@@ -49,7 +49,6 @@ const Skills = () => {
         { name: "React", level: "Beginner", icon: <FaReact />, color: "text-blue-500" },
         { name: "Next.js", level: "Beginner", icon: <SiNextdotjs />, color: "text-gray-800 dark:text-white" },
         { name: "JavaScript", level: "Advanced", icon: <FaJsSquare />, color: "text-yellow-500" },
-        { name: "TypeScript", level: "Beginner", icon: <SiTypescript />, color: "text-blue-600" },
         { name: "React Native", level: "Beginner", icon: <TbBrandReactNative />, color: "text-cyan-500" },
         { name: "Tailwind CSS", level: "Advanced", icon: <SiTailwindcss />, color: "text-cyan-400" },
       ],
@@ -58,7 +57,7 @@ const Skills = () => {
       title: "Backend & Database",
       skills: [
         { name: "Node.js", level: "Advanced", icon: <FaNodeJs />, color: "text-green-600" },
-        { name: "Express.js", level: "Intermediate", icon: <SiExpress />, color: "text-gray-600 dark:text-gray-300" },
+        { name: "Express.js", level: "Advanced", icon: <SiExpress />, color: "text-gray-600 dark:text-gray-300" },
         { name: "Laravel", level: "Beginner", icon: <SiLaravel />, color: "text-red-500" },
         { name: "PHP", level: "Beginner", icon: <FaPhp />, color: "text-purple-600" },
         { name: "Python", level: "Beginner", icon: <FaPython />, color: "text-blue-400" },
@@ -72,7 +71,6 @@ const Skills = () => {
         { name: "Git", level: "Advanced", icon: <FaGitAlt />, color: "text-orange-600" },
         { name: "Docker", level: "Beginner", icon: <FaDocker />, color: "text-blue-400" },
         { name: "Figma", level: "Advanced", icon: <FaFigma />, color: "text-purple-500" },
-        { name: "Adobe XD", level: "Beginner", icon: <SiAdobexd />, color: "text-pink-500" },
         
       ],
     },
